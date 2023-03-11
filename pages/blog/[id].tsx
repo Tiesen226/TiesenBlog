@@ -10,6 +10,7 @@ const BlogPost: NextPage = ({
   const {author, bodyHTML, createdAt, title} = blogData
   return (
     <section className="layout">
+      <link rel="icon" type="image/jpg" href="../public/bYCpzJna_2x.jpg"/>
       <title>{title}</title>
       <div className="max-w-[50%]">
         <h1 className="text-center my-10 text-[2rem] font-bold">{title}</h1>
