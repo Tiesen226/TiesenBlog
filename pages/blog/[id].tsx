@@ -1,8 +1,8 @@
-import BlogHeader from '@/components/BlogHeader'
 import { getBlogDetail } from '@/server/blogs'
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
 import parse from 'html-react-parser'
 import detail from './id.module.css'
+import BlogHeader from '@/components/BlogHeader'
 
 const BlogPost: NextPage = ({
   blogData,
@@ -17,7 +17,7 @@ const BlogPost: NextPage = ({
           <BlogHeader createdAt={createdAt} author={author} />
         </div>
       </div>
-      <div className={`${detail.html} flex flex-col max-w-[69%]`}>
+      <div className={`${detail.html} flex flex-col overflow-hidden mx-6 mb-6 bg-neutral-300 text-zinc-800 rounded-lg p-4`}>
         {parse(bodyHTML)}
       </div>
     </section>

@@ -29,7 +29,7 @@ const BlogHeader: React.FC<Headerprops> = (props) => {
       <div className="flex flex-col">
         <div className="flex gap-4">
           <p className=" font-semibold text-[1rem]">{author.name}</p>
-          <li className="font-normal ml-2 text-[0.85rem]">
+          <li className="font-normal ml-2 text-[0.8rem]">
             {createdDate.toLocaleDateString('en-US', options)}
           </li>
         </div>
