@@ -21,3 +21,15 @@
     @apply w-screen h-screen overflow-auto flex flex-col items-center bg-zinc-800 text-neutral-100 font-GothamMedium;
   }
 }
+
+@media screen and (max-width: 1900px) {
+  .detail {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .detail {
+    width: 85%;
+  }
+}
