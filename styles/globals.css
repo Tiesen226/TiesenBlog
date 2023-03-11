@@ -35,5 +35,10 @@
 }
 
 body {
-  cursor: url('/GG.ani');
+  cursor: url(https://raw.githubusercontent.com/Tiesen226/TiesenBlog/main/public/GG.gif), auto;
+}
+
+a,
+button {
+  cursor: url(https://raw.githubusercontent.com/Tiesen226/TiesenBlog/main/public/GG%20up.gif), auto;
 }
