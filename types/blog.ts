@@ -5,7 +5,7 @@ export interface BlogPost {
   title: string
   html?: string
   bodyText: string
-  tags?: string[]
+  tags: string[]
   createdAt: string
   lastEdited?: string | null
   author: {
