@@ -57,7 +57,7 @@ const Home: NextPage = ({
           return (
             <div
               key={blog.id}
-              className="detail max-w-[28rem] max-h-[20rem] overflow-hidden mx-6 mb-6 bg-neutral-300 text-zinc-800 rounded-lg p-4 hover:bg-neutral-500 hover:text-neutral-300 transition-all duration-300"
+              className="max-w-[28rem] max-h-[20rem] overflow-hidden mx-6 mb-6 bg-neutral-300 text-zinc-800 rounded-lg p-4 hover:bg-neutral-500 hover:text-neutral-300 transition-all duration-300"
             >
               <a href={blog.url} target="_blank" rel="noreferrer">
                 <BlogReview
