@@ -1,16 +1,15 @@
 import BlogHeader from '@/components/BlogHeader'
-import {getBlogDetail} from '@/server/blogs'
-import {GetServerSideProps, InferGetServerSidePropsType, NextPage} from 'next'
+import { getBlogDetail } from '@/server/blogs'
+import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
 import parse from 'html-react-parser'
 import detail from './id.module.css'
 
 const BlogPost: NextPage = ({
   blogData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const {author, bodyHTML, createdAt, title} = blogData
+  const { author, bodyHTML, createdAt, title } = blogData
   return (
     <section className="layout">
-      <link rel="icon" type="image/jpg" href="../public/bYCpzJna_2x.jpg"/>
       <title>{title}</title>
       <div className="max-w-[50%]">
         <h1 className="text-center my-10 text-[2rem] font-bold">{title}</h1>

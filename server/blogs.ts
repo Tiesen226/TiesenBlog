@@ -1,5 +1,5 @@
-import {BlogPost, BlogDetail} from '@/types/blog'
-import {discussionGql, discussionDetailGql} from './gql'
+import { BlogPost, BlogDetail } from '@/types/blog'
+import { discussionGql, discussionDetailGql } from './gql'
 
 const API_URL = 'https://api.github.com/graphql'
 const GH_ACCESS_TOKEN = process.env.GH_ACCESS_TOKEN
@@ -12,11 +12,11 @@ export async function getBlogs(): Promise<BlogPost[]> {
       Authorization: `token ${GH_ACCESS_TOKEN}`,
       'content-type': 'application/json',
     },
-    body: JSON.stringify({query: discussionGql(DISSCUSTION_CATEGORY_ID)}),
+    body: JSON.stringify({ query: discussionGql(DISSCUSTION_CATEGORY_ID) }),
   })
   let res = await response.json()
   const discussions = res.data.repository.discussions.nodes
-
+  console.log(res.data)
   const posts = discussions.map((discussion: any): BlogPost => {
     const {
       title,
@@ -34,7 +34,7 @@ export async function getBlogs(): Promise<BlogPost[]> {
     const authorUrl = author.url
     const authorName = author.login
     const authorAvt = author.avatarUrl
-    const tags: string[] = labels.nodes.map((tag: {name: string}) => tag.name)
+    const tags: string[] = labels.nodes.map((tag: { name: string }) => tag.name)
 
     const post = {
       id,
@@ -46,7 +46,7 @@ export async function getBlogs(): Promise<BlogPost[]> {
       tags,
       createdAt,
       lastEdited,
-      author: {url: authorUrl, name: authorName, avatar: authorAvt},
+      author: { url: authorUrl, name: authorName, avatar: authorAvt },
     }
     return post
   })
@@ -60,24 +60,23 @@ export async function getBlogDetail(blogId: number): Promise<BlogDetail> {
       Authorization: `token ${GH_ACCESS_TOKEN}`,
       'content-type': 'application/json',
     },
-    body: JSON.stringify({query: discussionDetailGql(blogId)}),
+    body: JSON.stringify({ query: discussionDetailGql(blogId) }),
   })
   let res = await response.json()
   let discussion = res.data.repository.discussion
   const {
-    author: {url: authorUrl, login: authorName, avatarUrl: authorAvt},
+    author: { url: authorUrl, login: authorName, avatarUrl: authorAvt },
     createdAt,
     title: title,
     bodyHTML: html,
   } = discussion
 
   const detail = {
-    author: {url: authorUrl, name: authorName, avatar: authorAvt},
+    author: { url: authorUrl, name: authorName, avatar: authorAvt },
     createdAt,
     title,
     bodyHTML: html,
   }
-  console.log(res)
 
   return detail
 }

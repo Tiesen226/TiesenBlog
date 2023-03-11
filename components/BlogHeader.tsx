@@ -10,7 +10,7 @@ interface Headerprops {
 }
 
 const BlogHeader: React.FC<Headerprops> = (props) => {
-  const {createdAt, author} = props
+  const { createdAt, author } = props
   const createdDate: Date = new Date(createdAt)
   const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
@@ -27,13 +27,15 @@ const BlogHeader: React.FC<Headerprops> = (props) => {
         height={50}
       />
       <div className="flex flex-col">
-        <p className=" font-semibold text-[1rem]">{author.name}</p>
         <div className="flex gap-4">
-          <li className="list-none font-normal text-[0.85rem]">{author.url}</li>
+          <p className=" font-semibold text-[1rem]">{author.name}</p>
           <li className="font-normal ml-2 text-[0.85rem]">
             {createdDate.toLocaleDateString('en-US', options)}
           </li>
         </div>
+        <a href={author.url} target="_blank" className="list-none font-normal text-[0.85rem]">{author.url}</a>
+
+
       </div>
     </div>
   )
