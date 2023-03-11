@@ -29,6 +29,7 @@ const Home: NextPage = ({
 
   return (
     <main className="layout">
+      <link rel="icon" type="image/jpg" href="../public/bYCpzJna_2x.jpg"/>
       <title> Tiesen </title>
       <section>
         <div className="mt-3 text-center">
