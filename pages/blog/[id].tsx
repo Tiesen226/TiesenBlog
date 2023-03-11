@@ -17,7 +17,7 @@ const BlogPost: NextPage = ({
           <BlogHeader createdAt={createdAt} author={author} />
         </div>
       </div>
-      <div className={`${detail.html} flex flex-col overflow-hidden mx-6 mb-6 bg-neutral-300 text-zinc-800 rounded-lg p-4`}>
+      <div className={`${detail.html} flex flex-col w-[85%] bg-neutral-300 text-zinc-800 rounded-lg p-4`}>
         {parse(bodyHTML)}
       </div>
     </section>
